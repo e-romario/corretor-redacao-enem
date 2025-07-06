@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "fill": "transparent", "strokeWidth": 0}, "axis": {"grid": false}}, "layer": [{"mark": {"type": "bar", "color": "#D8F2F2"}, "encoding": {"tooltip": [{"field": "Tema", "type": "nominal"}, {"field": "Pontua\u00e7\u00e3o", "type": "quantitative"}], "x": {"axis": null, "field": "Reda\u00e7\u00e3o", "type": "nominal"}, "y": {"axis": null, "field": "Pontua\u00e7\u00e3o", "type": "quantitative"}}}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "color": "#304b4b", "dy": -20, "fontSize": 30}, "encoding": {"text": {"field": "Pontua\u00e7\u00e3o", "type": "quantitative"}, "tooltip": [{"field": "Tema", "type": "nominal"}, {"field": "Pontua\u00e7\u00e3o", "type": "quantitative"}], "x": {"axis": null, "field": "Reda\u00e7\u00e3o", "type": "nominal"}, "y": {"axis": null, "field": "Pontua\u00e7\u00e3o", "type": "quantitative"}}}], "data": {"name": "data-637ca761bace0aa9a12b6bb69fe191f7"}, "width": {"step": 80}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-637ca761bace0aa9a12b6bb69fe191f7": [{"Reda\u00e7\u00e3o": "Top 1", "Pontua\u00e7\u00e3o": 920, "Tema": "Os desafios da inclus\u00e3o digital no Brasil contempor\u00e2neo"}, {"Reda\u00e7\u00e3o": "Top 2", "Pontua\u00e7\u00e3o": 780, "Tema": "Os desafios da inclus\u00e3o digital no Brasil contempor\u00e2neo"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
